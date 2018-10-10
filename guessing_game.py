@@ -26,7 +26,7 @@ def get_random(a, b):
 
 
 def start_game():
-    
+
     show_intro()
     rounds = 0
     answer = ''
@@ -40,6 +40,9 @@ def start_game():
 
         user_number = int(answer)
         rounds += 1
+        if user_number > 10 or user_number < 1:
+            print("The guess number should be from 1 to 10. Try again.")
+            continue
         if user_number == random_number:
             print("Got it!")
             break
@@ -49,7 +52,7 @@ def start_game():
             print("It's higher")
 
 
-    print("You won onlt in {} attemps!".format(rounds))
+    print("You won only in {} attemps!".format(rounds))
 
 
 

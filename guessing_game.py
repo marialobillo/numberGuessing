@@ -30,21 +30,29 @@ def start_game():
     show_intro()
     rounds = 0
     answer = ''
-    random_number = get_random(1, 11)
+    winner = False
+    random_number = get_random(1, 10)
 
     while answer != 'BYE':
-        answer = input("Please introduce a guess number from 1 to 10 --> ")
+        answer = input("Your guess number from 1 to 10 --> ")
 
+        rounds += 1
         if answer == 'BYE':
+            print('Oh we will miss you. Bye Bye!')
             break
 
-        user_number = int(answer)
-        rounds += 1
+        try:
+            user_number = int(answer)
+        except ValueError:
+            print('The number should be a digit.Try again')
+            continue
+
         if user_number > 10 or user_number < 1:
-            print("The guess number should be from 1 to 10. Try again.")
+            print("Your guess number from 1 to 10.")
             continue
         if user_number == random_number:
             print("Got it!")
+            winner = True
             break
         elif user_number > random_number:
             print("It's lower")
@@ -52,7 +60,9 @@ def start_game():
             print("It's higher")
 
 
-    print("You won only in {} attemps!".format(rounds))
+
+    if winner:
+        print("You won only in {} attemps!".format(rounds))
 
 
 

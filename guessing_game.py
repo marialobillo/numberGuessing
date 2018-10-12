@@ -14,10 +14,8 @@ you fork the snapshot of this workspace.
 import random
 
 def show_intro():
-    print("Welcome to Number Guessing Game!")
-    print("""
-Enter 'BYE' to stop the game.
-""")
+    print("*** Welcome to Number Guessing Game! ***")
+    print("Enter 'BYE' to stop the game.")
 
 
 def get_random(a, b):
@@ -59,10 +57,9 @@ def start_game():
         elif user_number < random_number:
             print("It's higher")
 
-
-
     if winner:
         print("You won only in {} attemps!".format(rounds))
+        print("Bye Bye")
 
 
 
